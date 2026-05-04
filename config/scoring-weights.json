@@ -1,0 +1,49 @@
+{
+  "_version": "1.0.1",
+  "_comment": "Seven-score weights used by lib/inference/scoring.ts.",
+  "apple_pomace": {
+    "score_resource_potential":      { "weight": 0.20, "desc": "Raw material potential" },
+    "score_composition_value":       { "weight": 0.25, "desc": "Composition value" },
+    "score_pretreatment_difficulty": { "weight": 0.10, "desc": "Pretreatment difficulty" },
+    "score_logistics_risk":          { "weight": 0.10, "desc": "Logistics risk" },
+    "score_market_match":            { "weight": 0.15, "desc": "Market match" },
+    "score_economics":               { "weight": 0.15, "desc": "Economics" },
+    "score_regulatory_risk":         { "weight": 0.05, "desc": "Regulatory risk" }
+  },
+  "coffee_grounds": {
+    "score_resource_potential":      { "weight": 0.15 },
+    "score_composition_value":       { "weight": 0.20 },
+    "score_pretreatment_difficulty": { "weight": 0.15 },
+    "score_logistics_risk":          { "weight": 0.10 },
+    "score_market_match":            { "weight": 0.15 },
+    "score_economics":               { "weight": 0.15 },
+    "score_regulatory_risk":         { "weight": 0.10 }
+  },
+  "citrus_pomace": {
+    "score_resource_potential":      { "weight": 0.15 },
+    "score_composition_value":       { "weight": 0.30 },
+    "score_pretreatment_difficulty": { "weight": 0.10 },
+    "score_logistics_risk":          { "weight": 0.10 },
+    "score_market_match":            { "weight": 0.15 },
+    "score_economics":               { "weight": 0.10 },
+    "score_regulatory_risk":         { "weight": 0.10 }
+  },
+  "cabbage_residue": {
+    "score_resource_potential":      { "weight": 0.15 },
+    "score_composition_value":       { "weight": 0.20 },
+    "score_pretreatment_difficulty": { "weight": 0.20 },
+    "score_logistics_risk":          { "weight": 0.20 },
+    "score_market_match":            { "weight": 0.10 },
+    "score_economics":               { "weight": 0.10 },
+    "score_regulatory_risk":         { "weight": 0.05 }
+  },
+  "default": {
+    "score_resource_potential":      { "weight": 0.20 },
+    "score_composition_value":       { "weight": 0.20 },
+    "score_pretreatment_difficulty": { "weight": 0.15 },
+    "score_logistics_risk":          { "weight": 0.10 },
+    "score_market_match":            { "weight": 0.15 },
+    "score_economics":               { "weight": 0.15 },
+    "score_regulatory_risk":         { "weight": 0.05 }
+  }
+}

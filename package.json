@@ -1,0 +1,33 @@
+{
+  "name": "byorbit-agent",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest",
+    "@neondatabase/serverless": "latest",
+    "drizzle-orm": "latest",
+    "fast-xml-parser": "latest",
+    "kordoc": "^2.5.2",
+    "next": "^16.2.4",
+    "ollama": "latest",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "xlsx": "^0.18.5",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^5"
+  }
+}

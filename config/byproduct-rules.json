@@ -1,0 +1,74 @@
+{
+  "_version": "1.0.1",
+  "_comment": "R1-R5 inference rules used by lib/inference/rules.ts.",
+  "apple_pomace": {
+    "R1": {
+      "name": "Food fiber ingredient candidate",
+      "conditions": [
+        { "field": "TDF_g_per_100g", "operator": "gte", "threshold": 30, "unit": "g/100g" },
+        { "field": "drying_method", "operator": "neq", "value": "none", "note": "Drying process is required." }
+      ],
+      "pass_action": "Proceed to food ingredient registration review.",
+      "fail_action": "Improve drying and fiber concentration before marketing."
+    },
+    "R2": {
+      "name": "Antioxidant extract candidate",
+      "conditions": [
+        { "field": "TPC_mgGAE_per_g", "operator": "gte", "threshold": 3.0, "unit": "mgGAE/g" },
+        { "field": "dry_moisture_pct", "operator": "lte", "threshold": 12, "unit": "%" }
+      ],
+      "pass_action": "Evaluate polyphenol extraction feasibility.",
+      "fail_action": "TPC or moisture does not yet meet extract-candidate criteria."
+    },
+    "R3": {
+      "name": "Freshness and safety risk",
+      "conditions": [
+        { "field": "drying_method", "operator": "eq", "value": "none", "flag": "warning" },
+        { "field": "shelf_life_h", "operator": "lt", "threshold": 48, "flag": "critical" }
+      ],
+      "pass_action": "No critical freshness risk detected.",
+      "fail_action": "Stabilize with same-day drying or chilled logistics."
+    },
+    "R4": {
+      "name": "Market price competitiveness",
+      "conditions": [
+        { "field": "TDF_g_per_100g", "operator": "gte", "threshold": 25 },
+        { "field": "TPC_mgGAE_per_g", "operator": "gte", "threshold": 3.0, "logic": "OR" }
+      ],
+      "pass_action": "Potentially competitive with fiber and pectin alternatives.",
+      "fail_action": "Composition value is weak for premium raw material positioning."
+    },
+    "R5": {
+      "name": "OEM matching readiness",
+      "conditions": [
+        { "field": "R1.pass", "operator": "eq", "value": true },
+        { "field": "heavy_metals_ok", "operator": "eq", "value": true },
+        { "field": "microbial_ok", "operator": "eq", "value": true },
+        { "field": "coa_complete", "operator": "eq", "value": true }
+      ],
+      "pass_action": "Ready for OEM buyer outreach.",
+      "fail_action": "Complete safety/CoA requirements before OEM outreach."
+    }
+  },
+  "coffee_grounds": {
+    "R1": { "name": "Biomass material candidate", "conditions": [{ "field": "lignocellulose_pct", "operator": "gte", "threshold": 45 }] },
+    "R2": { "name": "Oil extraction candidate", "conditions": [{ "field": "oil_pct", "operator": "gte", "threshold": 10 }, { "field": "dry_moisture_pct", "operator": "lte", "threshold": 12 }] },
+    "R3": { "name": "Odor and spoilage risk", "conditions": [{ "field": "drying_method", "operator": "eq", "value": "none", "flag": "warning" }, { "field": "odor_level", "operator": "eq", "value": "strong", "flag": "warning" }] },
+    "R4": { "name": "Fuel and adsorbent competitiveness", "conditions": [{ "field": "lignocellulose_pct", "operator": "gte", "threshold": 45 }] },
+    "R5": { "name": "OEM matching readiness", "conditions": [{ "field": "R1.pass", "operator": "eq", "value": true }, { "field": "microbial_ok", "operator": "eq", "value": true }, { "field": "heavy_metals_ok", "operator": "eq", "value": true }] }
+  },
+  "citrus_pomace": {
+    "R1": { "name": "Pectin raw material candidate", "conditions": [{ "field": "pectin_g_per_100g", "operator": "gte", "threshold": 15 }] },
+    "R2": { "name": "Flavonoid candidate", "conditions": [{ "field": "TPC_mgGAE_per_g", "operator": "gte", "threshold": 5.0 }, { "field": "dry_moisture_pct", "operator": "lte", "threshold": 12 }] },
+    "R3": { "name": "Freshness and pesticide risk", "conditions": [{ "field": "drying_method", "operator": "eq", "value": "none", "flag": "warning" }, { "field": "pesticide_test_done", "operator": "eq", "value": false, "flag": "warning" }] },
+    "R4": { "name": "Pectin market competitiveness", "conditions": [{ "field": "pectin_g_per_100g", "operator": "gte", "threshold": 15 }] },
+    "R5": { "name": "OEM matching readiness", "conditions": [{ "field": "R1.pass", "operator": "eq", "value": true }, { "field": "heavy_metals_ok", "operator": "eq", "value": true }, { "field": "pesticide_ok", "operator": "eq", "value": true }] }
+  },
+  "cabbage_residue": {
+    "R1": { "name": "Fiber ingredient candidate", "conditions": [{ "field": "TDF_g_per_100g", "operator": "gte", "threshold": 20 }] },
+    "R2": { "name": "Glucosinolate candidate", "conditions": [{ "field": "glucosinolate_mg_per_100g", "operator": "gte", "threshold": 50 }, { "field": "dry_moisture_pct", "operator": "lte", "threshold": 10 }] },
+    "R3": { "name": "High-moisture spoilage risk", "conditions": [{ "field": "drying_method", "operator": "eq", "value": "none", "flag": "critical" }] },
+    "R4": { "name": "Feed and compost economics", "conditions": [{ "field": "TDF_g_per_100g", "operator": "gte", "threshold": 20 }] },
+    "R5": { "name": "OEM matching readiness", "conditions": [{ "field": "R1.pass", "operator": "eq", "value": true }, { "field": "heavy_metals_ok", "operator": "eq", "value": true }] }
+  }
+}

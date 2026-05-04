@@ -1,0 +1,67 @@
+{
+  "_version": "1.0.1",
+  "_comment": "Correction factors used by lib/pipeline/correction.ts.",
+  "apple_pomace": {
+    "_name": "apple pomace",
+    "juice_yield_pct": 72.0,
+    "fresh_pomace_moisture_pct": 72.0,
+    "dry_target_moisture_pct": 8.0,
+    "component_retention": {
+      "TDF":     { "mean": 0.90, "min": 0.85, "max": 0.95, "note": "Mostly insoluble fiber retained in pomace." },
+      "TPC":     { "mean": 0.40, "min": 0.35, "max": 0.50, "note": "Conservative calibrated polyphenol retention." },
+      "pectin":  { "mean": 0.65, "min": 0.50, "max": 0.75, "note": "Pectin retained in press cake." },
+      "protein": { "mean": 0.70, "min": 0.60, "max": 0.80, "note": "Protein enriched during drying." },
+      "sugar":   { "mean": 0.08, "min": 0.05, "max": 0.12, "note": "Most soluble sugar leaves with juice." },
+      "fat":     { "mean": 0.80, "min": 0.70, "max": 0.90, "note": "Low absolute fat content." }
+    },
+    "apple_TDF_by_variety": {
+      "Hongro":  { "TDF_g_per_100g": 3.6, "note": "Initial calibration value; update with more CoA batches." },
+      "Fuji":    { "TDF_g_per_100g": 2.0, "note": "Default RDA-like value." },
+      "Golden":  { "TDF_g_per_100g": 2.0, "note": "Default RDA-like value." },
+      "default": { "TDF_g_per_100g": 2.0, "note": "Fallback apple reference." }
+    },
+    "apple_TPC_default_mgGAE_per_g": 1.0
+  },
+  "coffee_grounds": {
+    "_name": "spent coffee grounds",
+    "extraction_yield_pct": 99.0,
+    "fresh_grounds_moisture_pct": 65.0,
+    "dry_target_moisture_pct": 10.0,
+    "component_retention": {
+      "lignocellulose": { "mean": 0.95, "min": 0.90, "max": 0.99 },
+      "oil":            { "mean": 0.85, "min": 0.75, "max": 0.92 },
+      "protein":        { "mean": 0.70, "min": 0.60, "max": 0.80 },
+      "caffeine":       { "mean": 0.10, "min": 0.05, "max": 0.20 },
+      "polyphenol":     { "mean": 0.30, "min": 0.20, "max": 0.45 }
+    },
+    "coffee_oil_pct_typical": { "min": 10, "max": 18, "unit": "g/100g dry" },
+    "lignocellulose_pct_typical": { "min": 45, "max": 60, "unit": "g/100g dry" }
+  },
+  "citrus_pomace": {
+    "_name": "citrus pomace",
+    "juice_yield_pct": 50.0,
+    "fresh_pomace_moisture_pct": 80.0,
+    "dry_target_moisture_pct": 10.0,
+    "component_retention": {
+      "pectin":      { "mean": 0.85, "min": 0.75, "max": 0.92 },
+      "flavonoid":   { "mean": 0.60, "min": 0.50, "max": 0.70 },
+      "limonene":    { "mean": 0.40, "min": 0.30, "max": 0.55 },
+      "TDF":         { "mean": 0.88, "min": 0.80, "max": 0.95 },
+      "citric_acid": { "mean": 0.20, "min": 0.10, "max": 0.35 }
+    },
+    "pectin_pct_typical": { "min": 20, "max": 35, "unit": "g/100g dry" }
+  },
+  "cabbage_residue": {
+    "_name": "cabbage residue",
+    "fresh_residue_moisture_pct": 90.0,
+    "dry_target_moisture_pct": 8.0,
+    "component_retention": {
+      "glucosinolate": { "mean": 0.70, "min": 0.60, "max": 0.80 },
+      "TDF":           { "mean": 0.85, "min": 0.75, "max": 0.92 },
+      "vitamin_c":     { "mean": 0.30, "min": 0.20, "max": 0.45 },
+      "mineral":       { "mean": 0.90, "min": 0.85, "max": 0.95 }
+    },
+    "seasonality_peak_months": [10, 11, 12],
+    "TDF_pct_typical": { "min": 25, "max": 40, "unit": "g/100g dry" }
+  }
+}
